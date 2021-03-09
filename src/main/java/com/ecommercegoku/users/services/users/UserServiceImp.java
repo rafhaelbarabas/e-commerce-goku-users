@@ -3,10 +3,12 @@ package com.ecommercegoku.users.services.users;
 import com.ecommercegoku.users.models.users.User;
 import com.ecommercegoku.users.repositories.UserRepository;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
+@Service
 public class UserServiceImp implements UserService{
 
     private final UserRepository repository;
@@ -28,7 +30,7 @@ public class UserServiceImp implements UserService{
     @Override
     public User findById(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Address not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
     }
 
     @Override
